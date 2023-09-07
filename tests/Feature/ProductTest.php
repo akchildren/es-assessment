@@ -67,9 +67,8 @@ class ProductTest extends TestCase
                     'GBP' => 12.99,
                     'USD' => 16.99,
                     'EUR' => 15.99,
-                ]
-            ]
+                ],
+            ],
         ]);
     }
-
 }

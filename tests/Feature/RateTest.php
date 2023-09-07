@@ -2,27 +2,18 @@
 
 namespace Tests\Feature;
 
-use App\Models\User;
 use App\Currency\Adapter;
-use Tests\TestCase;
+use App\Models\User;
 use Mockery;
+use Tests\TestCase;
 
 class RateTest extends TestCase
 {
-    /**
-     * @var string
-     */
     private string $endpoint = '/api/rate';
 
-    /**
-     * @var User
-     */
     private User $user;
 
-    /**
-     * @return void
-     */
-    private function setup(): void
+    public function setup(): void
     {
         parent::setup();
         $this->user = User::factory()->make();

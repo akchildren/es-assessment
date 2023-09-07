@@ -1,7 +1,6 @@
 <?php
 
 use App\Http\Controllers\RateController;
-use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 

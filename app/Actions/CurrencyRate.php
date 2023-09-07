@@ -13,24 +13,21 @@ class CurrencyRate
         'EUR' => [
             'EUR' => 1,
             'GBP' => 0.85,
-            'USD' => 11.09
+            'USD' => 11.09,
         ],
         'GBP' => [
             'EUR' => 1.17,
             'GBP' => 1,
-            'USD' => 1.28
+            'USD' => 1.28,
         ],
         'USD' => [
             'EUR' => 0.92,
             'GBP' => 0.78,
-            'USD' => 1
-        ]
+            'USD' => 1,
+        ],
     ];
 
     /**
-     * @param string $base
-     * @param string $currencyCode
-     * @return float
      * @throws CurrencyRateConversionDoesNotExist
      */
     public function convert(string $base, string $currencyCode): float
@@ -41,14 +38,11 @@ class CurrencyRate
     }
 
     /**
-     * @param string $base
-     * @param string $currencyCode
-     * @return void
      * @throws CurrencyRateConversionDoesNotExist
      */
     private function isValidRate(string $base, string $currencyCode): void
     {
-        if (!isset($this->rates[$base]) || !array_column($this->rates, $currencyCode)) {
+        if (! isset($this->rates[$base]) || ! array_column($this->rates, $currencyCode)) {
             throw new CurrencyRateConversionDoesNotExist();
         }
     }
