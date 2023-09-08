@@ -11,8 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('currency_rates', function (Blueprint $table) {
-            $table->id();
+        Schema::create('currency_rates', static function (Blueprint $table) {
+            $table->id()->unsigned();
+            $table->string('parent_currency_code');
+            $table->string('target_currency_code');
+            $table->unsignedDouble('rate');
             $table->timestamps();
         });
     }
