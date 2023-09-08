@@ -4,7 +4,7 @@ namespace App\Actions;
 
 use App\Exceptions\CurrencyRateConversionDoesNotExist;
 
-class CurrencyRate
+class ConvertCurrency
 {
     /**
      * @var array|array[]
@@ -30,7 +30,7 @@ class CurrencyRate
     /**
      * @throws CurrencyRateConversionDoesNotExist
      */
-    public function convert(string $base, string $currencyCode): float
+    public function execute(string $base, string $currencyCode): float
     {
         $this->isValidRate($base, $currencyCode);
 
