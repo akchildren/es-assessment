@@ -56,7 +56,17 @@ class Product extends Model
     }
 
     /**
-     * Interact with the user's first name.
+     * @return Attribute
+     */
+    protected function baseCurrency(): Attribute
+    {
+        return Attribute::make(
+            set: static fn (string $value) => strtoupper($value),
+        );
+    }
+
+    /**
+     * @return Attribute
      */
     protected function price(): Attribute
     {

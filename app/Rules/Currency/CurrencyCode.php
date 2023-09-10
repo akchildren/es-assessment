@@ -18,7 +18,7 @@ class CurrencyCode implements ValidationRule
     {
         $validator = Validator::make([$attribute => $value],
             [
-                $attribute => 'required|string|exists:currency_rates,parent_currency_code|max:3',
+                $attribute => 'required|string|max:3|exists:currency_rates,parent_currency_code',
             ]
         );
 
