@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\Product;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\ProductRequest;
-use App\Http\Resources\ProductResource;
+use App\Http\Requests\Product\ProductRequest;
+use App\Http\Resources\Product\ProductResource;
 use App\Models\Product;
 
 class ProductController extends Controller

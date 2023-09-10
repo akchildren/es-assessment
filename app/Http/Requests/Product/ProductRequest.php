@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests;
+namespace App\Http\Requests\Product;
 
 use App\Rules\Currency\CurrencyCode;
 use Illuminate\Contracts\Validation\ValidationRule;
