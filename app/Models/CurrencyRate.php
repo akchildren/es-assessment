@@ -33,8 +33,8 @@ class CurrencyRate extends Model
      * @var array<int, string>
      */
     protected $fillable = [
-        'parent_currency_rate',
-        'target_currency_rate',
+        'parent_currency_code',
+        'target_currency_code',
         'rate',
     ];
 
@@ -44,8 +44,8 @@ class CurrencyRate extends Model
      * @var array<string, string>
      */
     protected $casts = [
-        'parent_currency_rate' => 'string',
-        'target_currency_rate' => 'string',
+        'parent_currency_code' => 'string',
+        'target_currency_code' => 'string',
         'rate' => 'decimal:2',
     ];
 }
