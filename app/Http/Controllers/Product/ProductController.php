@@ -40,6 +40,7 @@ class ProductController extends Controller
         ]);
 
         $product = Product::create($data);
+
         return new ProductResource($product);
     }
 

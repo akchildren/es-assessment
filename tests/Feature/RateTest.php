@@ -2,14 +2,14 @@
 
 namespace Tests\Feature;
 
-use App\Models\User;
 use App\Currency\Adapter;
+use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Tests\TestCase;
 use Mockery;
+use Tests\TestCase;
 
-class RateTest extends TestCase {
-
+class RateTest extends TestCase
+{
     use RefreshDatabase;
 
     public static function currencyConversionProvider(): array

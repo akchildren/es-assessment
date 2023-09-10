@@ -26,7 +26,7 @@ class ProductRequest extends FormRequest
         return [
             'title' => ['required', 'string'],
             'base_currency' => [new CurrencyCode],
-            'price' => ['required', 'numeric', 'integer']
+            'price' => ['required', 'numeric', 'integer'],
         ];
     }
 }

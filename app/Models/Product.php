@@ -49,8 +49,6 @@ class Product extends Model
 
     /**
      * Get the route key for the model.
-     *
-     * @return string
      */
     public function getRouteKeyName(): string
     {
@@ -63,13 +61,12 @@ class Product extends Model
     protected function price(): Attribute
     {
         return Attribute::make(
-            set: static fn (int $value) => number_format($value/100, 2),
+            set: static fn (int $value) => number_format($value / 100, 2),
         );
     }
 
     /**
      * @note Currency conversions should round up with a trialing 99 minor unit.
-     * @return array
      */
     public function getAllCurrencyPrices(): array
     {

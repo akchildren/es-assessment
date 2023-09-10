@@ -2,21 +2,14 @@
 
 namespace App\Http\Resources;
 
-use App\Currency\CurrencyPrices;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class ProductResource extends JsonResource
 {
-    /**
-     * @var array
-     */
     private array $prices;
 
-    /**
-     * @param Product $resource
-     */
     public function __construct(Product $resource)
     {
         $this->prices = $resource->getAllCurrencyPrices();
@@ -35,7 +28,7 @@ class ProductResource extends JsonResource
             'slug' => $this->slug,
             'price' => $this->price,
             'base_currency' => $this->base_currency,
-            'currencies' => $this->prices
+            'currencies' => $this->prices,
         ];
     }
 }

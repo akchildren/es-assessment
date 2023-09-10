@@ -23,10 +23,10 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::get('/rate', RateController::class)
     ->middleware([
         'x-base-currency',
-        'throttle:50'
+        'throttle:50',
     ]);
 
 Route::resource('product', ProductController::class)
     ->only([
-        'store'
+        'store',
     ]);

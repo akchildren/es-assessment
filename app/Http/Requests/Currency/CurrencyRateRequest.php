@@ -25,7 +25,7 @@ class CurrencyRateRequest extends FormRequest
     {
         return [
             'currency' => [new CurrencyCode],
-            'base' => ['sometimes',new CurrencyCode],
+            'base' => ['sometimes', new CurrencyCode],
         ];
     }
 }

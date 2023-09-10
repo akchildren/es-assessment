@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->string('slug')->nullable();
-            $table->string('base_currency',3);
+            $table->string('base_currency', 3);
             $table->unsignedDouble('price');
             $table->timestamps();
         });

@@ -10,21 +10,12 @@ use Illuminate\Http\JsonResponse;
 
 class RateController extends Controller
 {
-    /**
-     * @param Adapter $adapter
-     * @param CurrencyCodeParameters $parameters
-     */
     public function __construct(
         private readonly Adapter $adapter,
         private readonly CurrencyCodeParameters $parameters
-    )
-    {
+    ) {
     }
 
-    /**
-     * @param CurrencyRateRequest $request
-     * @return JsonResponse
-     */
     public function __invoke(CurrencyRateRequest $request): JsonResponse
     {
         $rate = $this->adapter->getRate(

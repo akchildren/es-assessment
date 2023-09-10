@@ -10,16 +10,11 @@ use Symfony\Component\HttpFoundation\Response;
 
 class ValidateBaseRateHeader
 {
-    /**
-     * @param Request $request
-     * @param Closure $next
-     * @return Response
-     */
     public function handle(Request $request, Closure $next): Response
     {
         $validator = Validator::make(['X-Base-Currency' => $request->header('X-Base-Currency')],
             [
-                'X-Base-Currency' => [new CurrencyCode]
+                'X-Base-Currency' => [new CurrencyCode],
             ]
         );
 

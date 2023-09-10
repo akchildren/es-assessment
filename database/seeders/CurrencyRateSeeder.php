@@ -8,9 +8,6 @@ use Illuminate\Support\Facades\DB;
 
 class CurrencyRateSeeder extends Seeder
 {
-    /**
-     * @return void
-     */
     public function run(): void
     {
         foreach (CurrencyRate::RATES as $parentCode => $rates) {
