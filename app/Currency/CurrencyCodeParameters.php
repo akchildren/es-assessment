@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Actions;
+namespace App\Currency;
 
 use Illuminate\Http\Request;
 
-readonly class GetCurrencyCodeParameters
+readonly class CurrencyCodeParameters
 {
     /**
      * @param Request $request

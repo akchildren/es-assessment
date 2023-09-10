@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers\Currency;
 
-use App\Actions\GetCurrencyCodeParameters;
 use App\Currency\Adapter;
+use App\Currency\CurrencyCodeParameters;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Currency\CurrencyRateRequest;
 use Illuminate\Http\JsonResponse;
@@ -12,11 +12,11 @@ class RateController extends Controller
 {
     /**
      * @param Adapter $adapter
-     * @param GetCurrencyCodeParameters $parameters
+     * @param CurrencyCodeParameters $parameters
      */
     public function __construct(
         private readonly Adapter $adapter,
-        private readonly GetCurrencyCodeParameters $parameters
+        private readonly CurrencyCodeParameters $parameters
     )
     {
     }
