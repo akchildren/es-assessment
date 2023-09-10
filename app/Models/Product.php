@@ -55,4 +55,14 @@ class Product extends Model
     {
         return 'slug';
     }
+
+    /**
+     * Interact with the user's first name.
+     */
+    protected function price(): Attribute
+    {
+        return Attribute::make(
+            set: static fn (int $value) => number_format($value/100, 2),
+        );
+    }
 }
