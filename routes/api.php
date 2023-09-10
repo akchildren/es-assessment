@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Currency\RateController;
+use App\Http\Controllers\Product\ProductController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -23,4 +24,9 @@ Route::get('/rate', RateController::class)
     ->middleware([
         'x-base-currency',
         'throttle:50'
+    ]);
+
+Route::resource('product', ProductController::class)
+    ->only([
+        'store'
     ]);
