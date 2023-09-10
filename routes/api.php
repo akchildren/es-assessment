@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\RateController;
+use App\Http\Controllers\Currency\RateController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 

@@ -1,10 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Currency;
 
 use App\Actions\GetCurrencyCodeParameters;
 use App\Currency\Adapter;
-use App\Http\Requests\CurrencyRateRequest;
+use App\Http\Controllers\Controller;
+use App\Http\Requests\Currency\CurrencyRateRequest;
 use Illuminate\Http\JsonResponse;
 
 class RateController extends Controller

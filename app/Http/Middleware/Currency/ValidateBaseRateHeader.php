@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Middleware;
+namespace App\Http\Middleware\Currency;
 
-use App\Rules\CurrencyCode;
+use App\Rules\Currency\CurrencyCode;
 use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;

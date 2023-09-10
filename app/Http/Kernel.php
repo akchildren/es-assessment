@@ -2,7 +2,7 @@
 
 namespace App\Http;
 
-use App\Http\Middleware\ValidateBaseRateHeader;
+use App\Http\Middleware\Currency\ValidateBaseRateHeader;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
 class Kernel extends HttpKernel
