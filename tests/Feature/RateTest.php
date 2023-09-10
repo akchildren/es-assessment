@@ -4,10 +4,13 @@ namespace Tests\Feature;
 
 use App\Models\User;
 use App\Currency\Adapter;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 use Mockery;
 
 class RateTest extends TestCase {
+
+    use RefreshDatabase;
 
     public static function currencyConversionProvider(): array
     {
