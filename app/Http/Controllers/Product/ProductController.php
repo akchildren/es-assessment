@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Product;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ProductRequest;
+use App\Http\Resources\ProductResource;
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -31,7 +33,14 @@ class ProductController extends Controller
      */
     public function store(ProductRequest $request)
     {
-        //
+        $data = $request->all([
+            'title',
+            'base_currency',
+            'price',
+        ]);
+
+        $product = Product::create($data);
+        return new ProductResource($product);
     }
 
     /**
