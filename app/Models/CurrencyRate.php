@@ -2,30 +2,13 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class CurrencyRate extends Model
 {
     use HasFactory;
-
-    public const RATES = [
-        'EUR' => [
-            'EUR' => 1,
-            'GBP' => 0.85,
-            'USD' => 1.09,
-        ],
-        'GBP' => [
-            'EUR' => 1.17,
-            'GBP' => 1,
-            'USD' => 1.28,
-        ],
-        'USD' => [
-            'EUR' => 0.92,
-            'GBP' => 0.78,
-            'USD' => 1,
-        ],
-    ];
 
     /**
      * The attributes that are mass assignable.
@@ -48,4 +31,18 @@ class CurrencyRate extends Model
         'target_currency_code' => 'string',
         'rate' => 'decimal:2',
     ];
+
+    protected function parentCurrencyCode(): Attribute
+    {
+        return Attribute::make(
+            set: static fn (string $value) => strtoupper($value),
+        );
+    }
+
+    protected function targetCurrencyCode(): Attribute
+    {
+        return Attribute::make(
+            set: static fn (string $value) => strtoupper($value),
+        );
+    }
 }
