@@ -55,9 +55,6 @@ class Product extends Model
         return 'slug';
     }
 
-    /**
-     * @return Attribute
-     */
     protected function baseCurrency(): Attribute
     {
         return Attribute::make(
@@ -65,9 +62,6 @@ class Product extends Model
         );
     }
 
-    /**
-     * @return Attribute
-     */
     protected function price(): Attribute
     {
         return Attribute::make(

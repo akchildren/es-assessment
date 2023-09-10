@@ -69,7 +69,7 @@ class StoreProductTest extends TestCase
         $data = ['price' => 1299, 'title' => 'valid', 'base_currency' => 'GBP'];
         $this->callApi($data);
 
-        $this->assertIsFloat((float)Product::first()->price);
+        $this->assertIsFloat((float) Product::first()->price);
     }
 
     private function assertFieldRequired(string $field, array $data): void
@@ -80,10 +80,6 @@ class StoreProductTest extends TestCase
         $this->assertStringContainsString('required', $this->error);
     }
 
-    /**
-     * @param array $data
-     * @return void
-     */
     private function callApi(array $data): void
     {
         $this->response = $this->json('POST', $this->endpoint, $data);
