@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Currency\Adapter;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -64,5 +65,23 @@ class Product extends Model
         return Attribute::make(
             set: static fn (int $value) => number_format($value/100, 2),
         );
+    }
+
+    /**
+     * @note Currency conversions should round up with a trialing 99 minor unit.
+     * @return array
+     */
+    public function getAllCurrencyPrices(): array
+    {
+        $currencyCodes = CurrencyRate::distinct()->pluck('parent_currency_code');
+        $adapter = new Adapter();
+        $prices = [];
+
+        foreach ($currencyCodes as $code) {
+            $rate = $adapter->getRate($this->base_currency, $code);
+            $prices[$code] = ceil($rate * $this->price) - 0.01;
+        }
+
+        return $prices;
     }
 }

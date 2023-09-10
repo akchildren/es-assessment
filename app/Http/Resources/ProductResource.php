@@ -2,13 +2,27 @@
 
 namespace App\Http\Resources;
 
-use App\Currency\Adapter;
-use App\Models\CurrencyRate;
+use App\Currency\CurrencyPrices;
+use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class ProductResource extends JsonResource
 {
+    /**
+     * @var array
+     */
+    private array $prices;
+
+    /**
+     * @param Product $resource
+     */
+    public function __construct(Product $resource)
+    {
+        $this->prices = $resource->getAllCurrencyPrices();
+        parent::__construct($resource);
+    }
+
     /**
      * Transform the resource collection into an array.
      *
@@ -21,23 +35,7 @@ class ProductResource extends JsonResource
             'slug' => $this->slug,
             'price' => $this->price,
             'base_currency' => $this->base_currency,
-            'currencies' => $this->getAllCurrencyPrices(),
+            'currencies' => $this->prices
         ];
-    }
-
-    /**
-     * @note Currency conversions should round up with a trialing 99 minor unit.
-     * @return array
-     */
-    protected function getAllCurrencyPrices(): array
-    {
-        $adapter = new Adapter();
-        $currencyCodes = CurrencyRate::distinct()->pluck('parent_currency_code');
-        $prices = [];
-        foreach ($currencyCodes as $code) {
-            $rate = $adapter->getRate($this->base_currency, $code);
-            $prices[$code] = ceil($rate * $this->price) - 0.01 ;
-        }
-        return $prices;
     }
 }
