@@ -14,9 +14,9 @@ class ProductController extends Controller
      *
      * Store a newly created resource in storage.
      */
-    public function store(ProductRequest $request)
+    public function store(ProductRequest $request): ProductResource
     {
-        $data = $request->all([
+        $data = $request->safe()->only([
             'title',
             'base_currency',
             'price',
