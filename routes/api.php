@@ -26,7 +26,7 @@ Route::get('/rate', CurrencyRateController::class)
         'throttle:50',
     ]);
 
-Route::resource('product', ProductController::class)
+Route::apiResource('product', ProductController::class)
     ->only([
         'store',
     ]);
