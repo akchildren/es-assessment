@@ -8,7 +8,6 @@ use Illuminate\Http\Resources\Json\JsonResource;
 
 class ProductResource extends JsonResource
 {
-
     public function __construct(Product $resource, private readonly array $prices)
     {
         parent::__construct($resource);
