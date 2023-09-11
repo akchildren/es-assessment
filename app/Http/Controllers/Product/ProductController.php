@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Product;
 
+use App\Actions\Currency\GetAllProductPrices;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Product\ProductRequest;
 use App\Http\Resources\Product\ProductResource;
@@ -14,7 +15,7 @@ class ProductController extends Controller
      *
      * Store a newly created resource in storage.
      */
-    public function store(ProductRequest $request): ProductResource
+    public function store(ProductRequest $request, GetAllProductPrices $prices): ProductResource
     {
         $data = $request->safe()->only([
             'title',
@@ -24,6 +25,6 @@ class ProductController extends Controller
 
         $product = Product::create($data);
 
-        return new ProductResource($product);
+        return new ProductResource($product, $prices->execute($product));
     }
 }
