@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('currency_rates', static function (Blueprint $table) {
             $table->id()->unsigned();
-            $table->string('parent_currency_code');
-            $table->string('target_currency_code');
+            $table->string('parent_currency_code', 3);
+            $table->string('target_currency_code', 3);
             $table->unsignedDouble('rate');
             $table->timestamps();
         });
