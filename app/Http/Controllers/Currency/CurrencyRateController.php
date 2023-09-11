@@ -8,7 +8,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Currency\CurrencyRateRequest;
 use Illuminate\Http\JsonResponse;
 
-class RateController extends Controller
+class CurrencyRateController extends Controller
 {
     public function __construct(
         private readonly Contract $contract,
