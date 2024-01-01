@@ -1,7 +1,7 @@
 # elasticStage Senior PHP Developer Test
 
-Welcome to the elasticStage Senior PHP Developer Test. This test is designed to gather
-an understanding of your capabilities and approach to coding. 
+### Result
+Passed
 
 ## The Task
 ### Part 1
